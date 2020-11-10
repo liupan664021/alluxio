@@ -2380,6 +2380,13 @@ public final class PropertyKey implements Comparable<PropertyKey> {
           .setConsistencyCheckLevel(ConsistencyCheckLevel.WARN)
           .setScope(Scope.WORKER)
           .build();
+  public static final PropertyKey WORKER_IP_HOST =
+      new Builder(Name.WORKER_IP_HOST)
+          .setDefaultValue("false")
+          .setDescription("Whether to use IP address as the connect host of the WORKER process.")
+          .setConsistencyCheckLevel(ConsistencyCheckLevel.WARN)
+          .setScope(Scope.WORKER)
+          .build();
   public static final PropertyKey WORKER_BLOCK_HEARTBEAT_INTERVAL_MS =
       new Builder(Name.WORKER_BLOCK_HEARTBEAT_INTERVAL_MS)
           .setAlias("alluxio.worker.block.heartbeat.interval.ms")
@@ -5157,6 +5164,7 @@ public final class PropertyKey implements Comparable<PropertyKey> {
     //
     public static final String WORKER_ALLOCATOR_CLASS = "alluxio.worker.allocator.class";
     public static final String WORKER_BIND_HOST = "alluxio.worker.bind.host";
+    public static final String WORKER_IP_HOST = "alluxio.worker.ip.host";
     public static final String WORKER_BLOCK_HEARTBEAT_INTERVAL_MS =
         "alluxio.worker.block.heartbeat.interval";
     public static final String WORKER_BLOCK_HEARTBEAT_TIMEOUT_MS =

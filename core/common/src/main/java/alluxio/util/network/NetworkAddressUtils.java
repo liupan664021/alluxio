@@ -297,6 +297,11 @@ public final class NetworkAddressUtils {
         return bindHost;
       }
     }
+    if (conf.isSet(PropertyKey.WORKER_IP_HOST)) {
+      if (service.equals(ServiceType.WORKER_RPC) && conf.getBoolean(PropertyKey.WORKER_IP_HOST)) {
+        return getLocalIpAddress((int) conf.getMs(PropertyKey.NETWORK_HOST_RESOLUTION_TIMEOUT_MS));
+      }
+    }
     return getLocalHostName((int) conf.getMs(PropertyKey.NETWORK_HOST_RESOLUTION_TIMEOUT_MS));
   }
 
